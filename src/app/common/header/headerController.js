@@ -3,16 +3,16 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     var timeout;
 
     $scope.toggleCarousel = function() {
-        if (!document.getElementById("pause").style.display) {
+        if (!document.getElementById("play").classList.contains("hide")) {
             // Play
-            document.getElementById("pause").style.display = "block";
-            document.getElementById("play").style.display = "none";
+            document.getElementById("pause").classList.remove("hide");
+            document.getElementById("play").classList.add("hide");
             $scope.startTimeout();
         }
         else {
             // Pause
-            document.getElementById("pause").style.display = "";
-            document.getElementById("play").style.display = "block";
+            document.getElementById("pause").classList.add("hide");
+            document.getElementById("play").classList.remove("hide");
             $scope.stopTimeout();
         }
     };
