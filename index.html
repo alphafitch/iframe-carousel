@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="carousel" lang="en">
+    <head>
+        <title>iFrame Carousel</title>
+        <!-- Metadata -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content=""/>
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- build:css -->
+        <link rel="stylesheet" href="dist/app.styles.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!-- Markup -->
+        <siteheader></siteheader>
+        <main>
+            <ng-view layout="row" layout-fill></ng-view>
+        </main>
+        <sitefooter></sitefooter>
+        <!-- Scripts -->
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-material/angular-material.min.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <!-- build:js -->
+        <script src="src/app/app.module.js"></script>
+        <script src="src/app/app.routes.js"></script>
+        <script src="src/app/common/header/headerController.js"></script>
+        <script src="src/app/components/frame/frameController.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

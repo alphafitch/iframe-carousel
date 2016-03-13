@@ -1,0 +1,11 @@
+<header layout="row" class="flex-center">
+    <div flex="80" layout="column" class="left-padding">
+    </div>
+    <div flex="20" layout="row" layout-align="end center">
+        <md-button ng-click="toggleCarousel()" class="md-raised" aria-label="Button to start or pause the carousel">
+            <i id="play" class="fa fa-play"></i>
+            <i id="pause" class="fa fa-pause hide"></i>
+        </md-button>
+    </div>
+</header>
+<md-progress-linear md-mode="determinate" value="{{progress}}"></md-progress-linear>

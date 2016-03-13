@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+
+main,
+ng-view {
+  flex: 1 0 auto; }
+
+header {
+  flex: none;
+  background-color: #ccc; }
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 95vh;
+  overflow: hidden; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+#play:hover, #pause:hover {
+  cursor: pointer; }
+
+.text-center {
+  text-align: center; }
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center; }
+
+.inline {
+  display: inline-flex; }
+
+.lighter {
+  font-weight: lighter; }
+
+.normal {
+  font-weight: normal; }
+
+.left-padding {
+  padding-left: 1%; }
