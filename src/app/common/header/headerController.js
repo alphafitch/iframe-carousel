@@ -4,22 +4,19 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
 
     $scope.toggleCarousel = function() {
         if (!document.getElementById("play").classList.contains("hide")) {
-            // Play
-            document.getElementById("pause").classList.remove("hide");
-            document.getElementById("play").classList.add("hide");
             $scope.$broadcast("startTimeout");
         }
         else {
-            // Pause
-            document.getElementById("pause").classList.add("hide");
-            document.getElementById("play").classList.remove("hide");
             $scope.$broadcast("stopTimeout");
         }
     };
 
     $scope.$on("startTimeout", function() {
+        // Set the button to play mode
+        document.getElementById("pause").classList.remove("hide");
+        document.getElementById("play").classList.add("hide");
         $scope.progress = 0;
-        // Reveale the iFrame hide the title
+        // Reveal the iFrame hide the title
         document.getElementById("frame").style.display = "block";
         document.getElementById("title").classList.add("hide");
         // Don't start a timeout if one is already there
@@ -41,6 +38,9 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     });
 
     $scope.$on("stopTimeout", function() {
+        // Set the button to pause mode
+        document.getElementById("pause").classList.add("hide");
+        document.getElementById("play").classList.remove("hide");
         if (angular.isDefined(timeout)) {
             // Cancel the timeout and clear the variable
             $interval.cancel(timeout);
