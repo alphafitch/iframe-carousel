@@ -17,7 +17,8 @@ header {
 iframe {
   border: none;
   height: 95vh;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%; }
 
 ::-webkit-scrollbar {
   display: none; }
