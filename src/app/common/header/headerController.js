@@ -34,7 +34,7 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
             else {
                 $scope.progress += 1;
             }
-        }, 100);
+        }, $scope.timer);
     });
 
     $scope.$on("stopCarousel", function() {
