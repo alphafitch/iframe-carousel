@@ -1,15 +1,9 @@
-carousel.controller("frameController", function($scope, $http) {
+carousel.controller("frameController", function($scope) {
 
     $scope.currentFrame = 0;
 
     this.selectedTimer = "";
     this.timerOptions = ["100", "200"];
-
-    // Get the list of iframes to display in the carousel
-    $http.get("src/app/components/frame/frames.json").then(function(response) {
-        $scope.frames = response.data.list;
-        $scope.setFrame($scope.currentFrame); // Set the first iframe
-    });
 
     // Sets the iFrame to a given URL from the list
     $scope.setFrame = function(frameIndex) {
@@ -32,5 +26,8 @@ carousel.controller("frameController", function($scope, $http) {
         $scope.currentFrame = 0;
         $scope.setFrame($scope.currentFrame);
     });
+
+    // Set the first iframe on load
+    $scope.setFrame($scope.currentFrame);
 
 });
