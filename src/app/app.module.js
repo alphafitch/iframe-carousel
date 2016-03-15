@@ -2,14 +2,14 @@ var carousel = angular.module("carousel", ["ngMaterial", "ngRoute"]);
 
 carousel.directive("siteheader", function() {
     return {
-        templateUrl: "src/app/common/header/headerView.html",
+        templateUrl: "src/app/components/header/headerView.html",
         controller: "headerController"
     };
 });
 
 carousel.directive("editMenu", function() {
     return {
-        templateUrl: "src/app/common/editMenu/editMenuView.html",
+        templateUrl: "src/app/components/editMenu/editMenuView.html",
         controller: "editMenuController"
     };
 });
