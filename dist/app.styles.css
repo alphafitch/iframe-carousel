@@ -7,6 +7,9 @@ main,
 ng-view {
   flex: 1 0 auto; }
 
+ng-view {
+  height: 100vh !important; }
+
 header {
   flex: none;
   background-color: #ccc; }
