@@ -6,3 +6,10 @@ carousel.directive("siteheader", function() {
         controller: "headerController"
     };
 });
+
+carousel.directive("editMenu", function() {
+    return {
+        templateUrl: "src/app/common/editMenu/editMenuView.html",
+        controller: "editMenuController"
+    };
+});
