@@ -16,14 +16,12 @@
             </md-toolbar>
 
             <div layout="column" layout-align="center" layout-padding>
-
                 <md-input-container class="md-block">
                     <label>Viewing time in (seconds)</label>
                     <md-select ng-model="ctrl.selectedTimer">
                         <md-option ng-repeat="option in ctrl.timerOptions" value="{{option}}">{{option}}</md-option>
                     </md-select>
                 </md-input-container>
-
             </div>
 
         </md-sidenav>
