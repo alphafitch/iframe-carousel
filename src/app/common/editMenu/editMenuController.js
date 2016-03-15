@@ -1,11 +1,9 @@
 carousel.controller("editMenuController", function($scope, $mdSidenav) {
 
-    // Generic function to build a toggler that opens/closes the sidenavs
-    $scope.buildToggler = function(navID) {
-        return function() {
-            $mdSidenav(navID).toggle();
-        };
+    $scope.toggleEditMenu = function() {
+        $mdSidenav("editMenu").toggle();
+        // Reset the frame and the timer when the edit menu is opened
+        $scope.$broadcast("stopTimeout");
     };
 
-    $scope.toggleEditMenu = $scope.buildToggler("editMenu");
 });
