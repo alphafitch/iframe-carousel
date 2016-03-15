@@ -2,7 +2,7 @@ carousel.controller("frameController", function($scope, $http) {
 
     $scope.currentFrame = 0;
 
-    this.selectedTimer = '';
+    this.selectedTimer = "";
     this.timerOptions = ["100", "200"];
 
     // Get the list of iframes to display in the carousel
