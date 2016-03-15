@@ -7,20 +7,17 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
             // Play
             document.getElementById("pause").classList.remove("hide");
             document.getElementById("play").classList.add("hide");
-            //$scope.startTimeout();
             $scope.$broadcast("startTimeout");
         }
         else {
             // Pause
             document.getElementById("pause").classList.add("hide");
             document.getElementById("play").classList.remove("hide");
-            //$scope.stopTimeout();
             $scope.$broadcast("stopTimeout");
         }
     };
 
     $scope.$on("startTimeout", function() {
-    //$scope.startTimeout = function() {
         $scope.progress = 0;
         // Reveale the iFrame hide the title
         document.getElementById("frame").style.display = "block";
@@ -44,7 +41,6 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     });
 
     $scope.$on("stopTimeout", function() {
-    //$scope.stopTimeout = function() {
         if (angular.isDefined(timeout)) {
             // Cancel the timeout and clear the variable
             $interval.cancel(timeout);
@@ -61,7 +57,6 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
 
     $scope.$on("$destroy", function() {
         // Make sure that the interval is destroyed too
-        //$scope.stopTimeout();
         $scope.$broadcast("stopTimeout");
     });
 
