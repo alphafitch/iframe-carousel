@@ -1,4 +1,4 @@
-carousel.controller('appController', function($scope,  $http) {
+carousel.controller("appController", function($scope,  $http) {
 
     // Get the list of iframes to display in the carousel
     $http.get("src/app/app.config.json").then(function(response) {
