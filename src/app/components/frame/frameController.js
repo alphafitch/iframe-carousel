@@ -1,9 +1,7 @@
 carousel.controller("frameController", function($scope) {
 
     $scope.currentFrame = 0;
-
-    this.selectedTimer = "";
-    this.timerOptions = ["100", "200"];
+    this.timerOptions = ["100", "1000"];
 
     // Sets the iFrame to a given URL from the list
     $scope.setFrame = function(frameIndex) {
