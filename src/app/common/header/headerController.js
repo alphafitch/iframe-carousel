@@ -4,14 +4,14 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
 
     $scope.toggleCarousel = function() {
         if (!document.getElementById("play").classList.contains("hide")) {
-            $scope.$broadcast("startTimeout");
+            $scope.$broadcast("startCarousel");
         }
         else {
-            $scope.$broadcast("stopTimeout");
+            $scope.$broadcast("stopCarousel");
         }
     };
 
-    $scope.$on("startTimeout", function() {
+    $scope.$on("startCarousel", function() {
         // Set the button to play mode
         document.getElementById("pause").classList.remove("hide");
         document.getElementById("play").classList.add("hide");
@@ -37,7 +37,7 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         }, 100);
     });
 
-    $scope.$on("stopTimeout", function() {
+    $scope.$on("stopCarousel", function() {
         // Set the button to pause mode
         document.getElementById("pause").classList.add("hide");
         document.getElementById("play").classList.remove("hide");
@@ -57,7 +57,7 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
 
     $scope.$on("$destroy", function() {
         // Make sure that the interval is destroyed too
-        $scope.$broadcast("stopTimeout");
+        $scope.$broadcast("stopCarousel");
     });
 
 }]);
