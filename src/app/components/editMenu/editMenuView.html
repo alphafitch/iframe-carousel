@@ -1,10 +1,10 @@
-<div ng-click="toggleEditMenu()" ng-hide="isOpen()">
+<div ng-click="toggleEditMenu()">
     <md-button ng-click="" class="md-raised flex-center" aria-label="Button to edit the carousel">
         <i id="edit" class="fa fa-cogs fa-2x"></i>
     </md-button>
 </div>
 
-<div layout="column" ng-cloak ng-controller="frameController as ctrl">
+<div layout="column" ng-cloak>
     <section layout="row" flex>
         <md-sidenav class="md-sidenav-left md-whiteframe-z2 full-height" md-component-id="editMenu">
 
@@ -19,7 +19,7 @@
                 <md-input-container class="md-block">
                     <label>Viewing time (milliseconds)</label>
                     <md-select ng-model="timer">
-                        <md-option ng-repeat="option in ctrl.timerOptions" value="{{option}}">{{option}}</md-option>
+                        <md-option ng-repeat="option in timerOptions" value="{{option}}">{{option}}</md-option>
                     </md-select>
                 </md-input-container>
             </div>
