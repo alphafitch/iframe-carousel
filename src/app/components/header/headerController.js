@@ -12,10 +12,17 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     };
 
     $scope.$on("startCarousel", function() {
+        var progressBarIncrement = 1, // Value to increase progress with, per interval
+            progressBarTotal = 100, // Max value of the progress bar
+            userSetTime = $scope.timer * 1000, // Convert s into ms
+            intervalTime = userSetTime / progressBarTotal; // Period of time to increment the progress bar
+
+        // Set starting point for the progress bar
+        $scope.progress = 0;
+
         // Set the button to play mode
         document.getElementById("pause").classList.remove("hide");
         document.getElementById("play").classList.add("hide");
-        $scope.progress = 0;
         // Reveal the iFrame hide the title
         document.getElementById("frame").style.display = "block";
         document.getElementById("title").classList.add("hide");
@@ -25,16 +32,16 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         }
         // Set the timeout to the variable
         timeout = $interval(function() {
-            if ($scope.progress >= 100) {
+            if ($scope.progress >= progressBarTotal) {
                 // Move the iFrame to the next URL in the list
                 $scope.$broadcast("nextFrame");
                 // Reset the progress bar
                 $scope.progress = 0;
             }
             else {
-                $scope.progress += 1;
+                $scope.progress += progressBarIncrement;
             }
-        }, $scope.timer);
+        }, intervalTime);
     });
 
     $scope.$on("stopCarousel", function() {
