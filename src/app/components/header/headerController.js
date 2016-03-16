@@ -12,10 +12,14 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     };
 
     $scope.$on("startCarousel", function() {
-        var progressBarIncrement = 1, // Value to increase progress with, per interval
-            progressBarTotal = 100, // Max value of the progress bar
-            userSetTime = $scope.timer * 1000, // Convert s into ms
-            intervalTime = userSetTime / progressBarTotal; // Period of time to increment the progress bar
+        // Period of time to increment the progress bar, fixed to 100ms/1s for smooth progress bar
+        var intervalTime = 100,
+            // Max value of the progress bar
+            progressBarTotal = 100,
+            // Convert s into ms
+            userSetTime = $scope.timer * 1000,
+            // Value to increase progress bar per interval
+            progressBarIncrement = (intervalTime * progressBarTotal) / userSetTime;
 
         // Set starting point for the progress bar
         $scope.progress = 0;
