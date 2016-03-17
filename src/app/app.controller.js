@@ -4,6 +4,7 @@ carousel.controller("appController", function($scope,  $http) {
     $http.get("src/app/app.config.json").then(function(response) {
         $scope.frames = response.data.list;
         $scope.timer = response.data.timer;
+        $scope.totalFrames = $scope.frames.length;
     });
 
 });
