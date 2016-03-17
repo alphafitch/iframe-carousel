@@ -1,5 +1,12 @@
 # iFrame Carousel
 
+## Build Status
+
+* Master [![Build Status](https://travis-ci.org/alphafitch/iframe-carousel.svg?branch=master)](https://travis-ci.org/alphafitch/iframe-carousel)
+* See all branches on [the Travis CI page](https://travis-ci.org/alphafitch/iframe-carousel/branches)
+
+## About
+
 Displays a carousel of websites in a loop, great for viewing status boards, statistics pages, etc.
 
 ![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-in-progress.png "Carousel in progress")
@@ -12,10 +19,6 @@ You can edit the timer for the carousel and the frames that are shown.
 
 * Download the latest version of the code from [the release page](https://github.com/alphafitch/iframe-carousel/releases).
 * iFrame Carousel will run on a normal apache server, unzip the package and deploy.
-
-## Build Status
-
-TBC
 
 ## Creators
 
