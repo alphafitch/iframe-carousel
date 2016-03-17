@@ -3,10 +3,10 @@
 Displays a carousel of websites in a loop, great for viewing status boards, statistics pages, etc.
 
 Carousel in progress:
-![alt text](https://github.com/alphafitch/iframe-carousel/tree/master/src/assets/examples/iframe-carousel-in-progress.png "Carousel in progress")
+![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-in-progress.png "Carousel in progress")
 
 Edit menu open:
-![alt text](https://github.com/alphafitch/iframe-carousel/tree/master/src/assets/examples/iframe-carousel-edit-menu.png "Edit menu open")
+![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-edit-menu.png "Edit menu open")
 
 ## Setup
 
