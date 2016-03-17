@@ -17,12 +17,12 @@
 
             <div layout="column" layout-align="center" layout-padding>
                 <h3>General Settings</h3>
-                <md-input-container class="md-block">
-                    <label>Viewing time per frame (seconds)</label>
-                    <md-select ng-model="timer">
-                        <md-option ng-repeat="option in timerOptions" value="{{option}}">{{option}}</md-option>
-                    </md-select>
-                </md-input-container>
+                <div layout="column">
+                    <div>
+                        <span>Display time per frame: {{timer}} seconds</span>
+                    </div>
+                    <md-slider flex md-discrete ng-model="timer" step="10" min="10" max="100" aria-label="Slider to control time per frame" id="timer-slider"></md-slider>
+                </div>
             </div>
 
             <div layout="column" layout-align="center" layout-padding>
