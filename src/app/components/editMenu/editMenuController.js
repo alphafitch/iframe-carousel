@@ -13,7 +13,7 @@ carousel.controller("editMenuController", function($scope, $mdSidenav) {
 
     $scope.removeFrame = function() {
         if ($scope.totalFrames > 1) {
-            $scope.frames.pop("https://en.wikipedia.org/wiki/Main_Page");
+            $scope.frames.pop();
             $scope.totalFrames = $scope.frames.length;
         }
     };
