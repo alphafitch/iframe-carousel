@@ -33,7 +33,7 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         document.getElementById("pause").classList.remove("hide");
         document.getElementById("play").classList.add("hide");
         // Reveal the iFrame hide the title
-        document.getElementById("frame").style.display = "block";
+        document.getElementById("frame").classList.remove("hide");
         document.getElementById("title").classList.add("hide");
         // Don't start a timeout if one is already there
         if (angular.isDefined(timeout)) {
@@ -66,7 +66,7 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
             $scope.progress = 0;
             // Reset and hide the iFrame
             $scope.$broadcast("resetFrame");
-            document.getElementById("frame").style.display = "";
+            document.getElementById("frame").classList.add("hide");
             // Show the title
             document.getElementById("title").classList.remove("hide");
         }
