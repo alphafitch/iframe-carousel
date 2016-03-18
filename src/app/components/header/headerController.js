@@ -11,6 +11,10 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         }
     };
 
+    $scope.pauseCarousel = function() {
+        $scope.$broadcast("pauseCarousel");
+    };
+
     $scope.$on("startCarousel", function() {
         // Period of time to increment the progress bar, fixed to 100ms/1s for smooth progress bar
         var intervalTime = 100,
@@ -65,6 +69,20 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
             document.getElementById("frame").style.display = "";
             // Show the title
             document.getElementById("title").classList.remove("hide");
+        }
+    });
+
+    $scope.$on("pauseCarousel", function() {
+        // Set the buttons to stop mode but don't hide the iframe
+        document.getElementById("stop").classList.add("hide");
+        document.getElementById("pause").classList.add("hide");
+        document.getElementById("play").classList.remove("hide");
+        if (angular.isDefined(timeout)) {
+            // Cancel the timeout and clear the variable
+            $interval.cancel(timeout);
+            timeout = undefined;
+            // Reset the progress bar
+            $scope.progress = 0;
         }
     });
 
