@@ -24,8 +24,9 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         // Set starting point for the progress bar
         $scope.progress = 0;
 
-        // Set the button to play mode
+        // Set the buttons to play mode
         document.getElementById("stop").classList.remove("hide");
+        document.getElementById("pause").classList.remove("hide");
         document.getElementById("play").classList.add("hide");
         // Reveal the iFrame hide the title
         document.getElementById("frame").style.display = "block";
@@ -49,8 +50,9 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     });
 
     $scope.$on("stopCarousel", function() {
-        // Set the button to stop mode
+        // Set the buttons to stop mode
         document.getElementById("stop").classList.add("hide");
+        document.getElementById("pause").classList.add("hide");
         document.getElementById("play").classList.remove("hide");
         if (angular.isDefined(timeout)) {
             // Cancel the timeout and clear the variable

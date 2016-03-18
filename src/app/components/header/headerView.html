@@ -4,7 +4,10 @@
     </div>
     <div flex="60" layout="column"></div>
     <div flex="20" layout="row" layout-align="end center">
-        <md-button ng-click="toggleCarousel()" class="md-raised flex-center" aria-label="Button to start or pause the carousel">
+        <md-button ng-click="toggleCarousel()" id="pause" class="md-raised flex-center hide" aria-label="Button to pause the carousel">
+            <i class="fa fa-pause fa-2x"></i>
+        </md-button>
+        <md-button ng-click="toggleCarousel()" class="md-raised flex-center" aria-label="Button to start or stop the carousel">
             <i id="play" class="fa fa-play fa-2x"></i>
             <i id="stop" class="fa fa-stop fa-2x hide"></i>
         </md-button>
