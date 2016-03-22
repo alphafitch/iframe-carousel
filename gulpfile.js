@@ -64,7 +64,7 @@ gulp.task("code-check", ["eslint", "scsslint"]);
 // Build an artefact and zip everything up
 gulp.task("build", ["scripts", "bower_components", "styles", "html", "images", "index", "misc"], function() {
   return gulp.src("dist/*")
-    .pipe(zip("appkit.zip"))
+    .pipe(zip("iframe-carousel.zip"))
     .pipe(gulp.dest("dist"));
 });
 
