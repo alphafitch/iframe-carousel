@@ -4,6 +4,12 @@
     </div>
     <div flex="60" layout="column"></div>
     <div flex="20" layout="row" layout-align="end center">
+        <md-button ng-click="stepBack()" id="back" class="md-raised flex-center hide" aria-label="Button to go back one frame">
+            <i class="fa fa-step-backward fa-2x"></i>
+        </md-button>
+        <md-button ng-click="stepForward()" id="forward" class="md-raised flex-center hide" aria-label="Button to go forward one frame">
+            <i class="fa fa-step-forward fa-2x"></i>
+        </md-button>
         <md-button ng-click="pauseCarousel()" id="pause" class="md-raised flex-center hide" aria-label="Button to pause the carousel">
             <i class="fa fa-pause fa-2x"></i>
         </md-button>

@@ -32,7 +32,9 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         document.getElementById("stop").classList.remove("hide");
         document.getElementById("pause").classList.remove("hide");
         document.getElementById("play").classList.add("hide");
-        // Reveal the iFrame hide the title
+        document.getElementById("back").classList.remove("hide");
+        document.getElementById("forward").classList.remove("hide");
+        // Reveal the iFrame and hide the title
         document.getElementById("frame").classList.remove("hide");
         document.getElementById("title").classList.add("hide");
         // Don't start a timeout if one is already there
@@ -57,6 +59,8 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         // Set the buttons to stop mode
         document.getElementById("stop").classList.add("hide");
         document.getElementById("pause").classList.add("hide");
+        document.getElementById("back").classList.add("hide");
+        document.getElementById("forward").classList.add("hide");
         document.getElementById("play").classList.remove("hide");
         if (angular.isDefined(timeout)) {
             // Cancel the timeout and clear the variable
