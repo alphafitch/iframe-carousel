@@ -93,8 +93,6 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
             // Cancel the timeout and clear the variable
             $interval.cancel(timeout);
             timeout = undefined;
-            // Reset the progress bar
-            $scope.progress = 0;
         }
     });
 
