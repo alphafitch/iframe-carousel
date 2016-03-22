@@ -15,6 +15,10 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         $scope.$broadcast("pauseCarousel");
     };
 
+    $scope.stepBack = function() {
+        $scope.$broadcast("previousFrame");
+    };
+
     $scope.stepForward = function() {
         $scope.$broadcast("nextFrame");
     };
