@@ -15,6 +15,10 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         $scope.$broadcast("pauseCarousel");
     };
 
+    $scope.stepForward = function() {
+        $scope.$broadcast("nextFrame");
+    };
+
     $scope.$on("startCarousel", function() {
         // Period of time to increment the progress bar, fixed to 100ms/1s for smooth progress bar
         var intervalTime = 100,
