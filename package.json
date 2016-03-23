@@ -1,6 +1,6 @@
 {
   "name": "iframe-carousel",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Displays a carousel of websites in a loop.",
   "main": "index.html",
   "repository": {
