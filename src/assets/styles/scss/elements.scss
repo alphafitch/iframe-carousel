@@ -22,6 +22,10 @@ header {
   background-color: $light-grey;
 }
 
+#frameInput {
+  margin-bottom: 0;
+}
+
 iframe {
     border: none;
     height: 95vh;

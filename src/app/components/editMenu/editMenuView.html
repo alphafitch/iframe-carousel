@@ -16,27 +16,29 @@
             </md-toolbar>
 
             <div layout="column">
-                <div layout="column" layout-align="center" layout-padding>
-                    <div layout="column">
-                        <span layout="row" layout-align="center center">Display time per frame: {{timer}}s / {{timer/60 | number:3}}m</span>
-                        <md-slider flex md-discrete ng-model="timer" step="10" min="10" max="100" aria-label="Slider to control time per frame" id="timer-slider"></md-slider>
-                        <span layout="row" layout-align="center center">Total carousel time: {{timer * totalFrames}}s / {{(timer*totalFrames)/60 | number:3}}m</span>
-                    </div>
-                    <div layout="row" layout-align="center center" layout-padding>
-                        <span layout="column" layout-align="center center">Total frames:</span>
-                        <div layout="row" layout-align="center">
-                            <md-button class="md-fab md-mini" ng-click="removeFrame()" aria-label="Remove a frame">
-                                <i class="fa fa-minus"></i>
-                            </md-button>
-                            <span layout="column" layout-align="center">{{totalFrames}}</span>
-                            <md-button class="md-fab md-mini" ng-click="addFrame()" aria-label="Add a frame">
-                                <i class="fa fa-plus"></i>
-                            </md-button>
-                        </div>
+                <div layout="column" layout-padding>
+                    <span><b>Interval time (seconds):</b></span>
+                    <md-slider flex md-discrete ng-model="timer" step="10" min="10" max="100" aria-label="Slider to control time per frame" id="timer-slider"></md-slider>
+                    <div layout-align="right">
+                        <span>Per frame: {{timer}} secs / {{timer/60 | number:3}} mins</span>
+                        <span>Carousel total: {{timer * totalFrames}} secs / {{(timer*totalFrames)/60 | number:3}} mins</span>
                     </div>
                 </div>
-                <div layout="column" layout-align="center" layout-padding>
-                    <md-input-container ng-repeat="frame in frames track by $index">
+                <div layout="column" layout-padding>
+                    <span><b>Total frames:</b></span>
+                    <div layout="row" layout-align="center">
+                        <md-button class="md-fab md-mini" ng-click="removeFrame()" aria-label="Remove a frame">
+                            <i class="fa fa-minus"></i>
+                        </md-button>
+                        <span layout="column" layout-align="center">{{totalFrames}}</span>
+                        <md-button class="md-fab md-mini" ng-click="addFrame()" aria-label="Add a frame">
+                            <i class="fa fa-plus"></i>
+                        </md-button>
+                    </div>
+                </div>
+                <div layout="column" layout-padding>
+                    <span><b>Frames in the carousel:</b></span>
+                    <md-input-container id="frameInput" ng-repeat="frame in frames track by $index">
                         <label>Frame {{$index + 1}}</label>
                         <input ng-model="frame">
                     </md-input-container>
