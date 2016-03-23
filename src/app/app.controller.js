@@ -1,7 +1,7 @@
 carousel.controller("appController", function($scope,  $http) {
 
     // Required for version info from the bower file
-    $http.get('bower.json').then(function(response) {
+    $http.get("bower.json").then(function(response) {
         $scope.bower = response.data;
     });
 
