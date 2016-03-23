@@ -18,9 +18,9 @@
             <div layout="column">
                 <div layout="column" layout-align="center" layout-padding>
                     <div layout="column">
-                        <span layout="row" layout-align="center center">Display time per frame: {{timer}} seconds</span>
+                        <span layout="row" layout-align="center center">Display time per frame: {{timer}}s / {{timer/60 | number:3}}m</span>
                         <md-slider flex md-discrete ng-model="timer" step="10" min="10" max="100" aria-label="Slider to control time per frame" id="timer-slider"></md-slider>
-                        <span layout="row" layout-align="center center">Total carousel time: {{timer * totalFrames}} seconds</span>
+                        <span layout="row" layout-align="center center">Total carousel time: {{timer * totalFrames}}s / {{(timer*totalFrames)/60 | number:3}}m</span>
                     </div>
                     <div layout="row" layout-align="center center" layout-padding>
                         <span layout="column" layout-align="center center">Total frames:</span>
