@@ -5,7 +5,7 @@ var gulp = require("gulp"),
     zip = require("gulp-zip"),
     concat = require("gulp-concat"),
     rename = require("gulp-rename"),
-    uglify = require("gulp-uglify"),
+    //uglify = require("gulp-uglify"),
     sass = require("gulp-sass"),
     cssnano = require("gulp-cssnano"),
     htmlreplace = require("gulp-html-replace"),
@@ -79,7 +79,7 @@ gulp.task("scripts", function() {
     .pipe(concat("app.js"))
     .pipe(gulp.dest("dist"))
     .pipe(rename("app.min.js"))
-    .pipe(uglify()) // Causes problems loading bower.json
+    //.pipe(uglify()) // Causes problems loading bower.json
     .pipe(gulp.dest("dist"));
 });
 
