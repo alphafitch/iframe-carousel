@@ -15,13 +15,13 @@ var gulp = require("gulp"),
     tag_version = require("gulp-tag-version"),
     paths = {
         // All JS files - for linting
-        allscripts  : ["src/app/**/*.js", "gulpfile.js"],
+        allscripts : ["src/app/**/*.js", "gulpfile.js"],
         // Only source JS files - for building the artefact
         appscripts : ["src/app/app.module.js", "src/app/**/*.js"],
         // All scss files
         styles     : "src/assets/styles/*.scss",
         // All image files
-        images     : "src/assets/img/**/*"
+        images     : "src/assets/images/**/*.png"
     };
 
 // ---------- Code lint and tidy up tasks ----------
@@ -101,7 +101,7 @@ gulp.task("html", function() {
 // Move the images into /dist
 gulp.task("images", function() {
   return gulp.src(paths.images)
-    .pipe(gulp.dest("dist/assets/img"));
+    .pipe(gulp.dest("dist/src/assets/images/"));
 });
 
 // Move index.html into /dist and replace the filepaths as required
