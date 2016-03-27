@@ -36,12 +36,13 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         // Set starting point for the progress bar
         $scope.progress = 0;
 
-        // Set the buttons to play mode
+        // Set main button to play mode
         document.getElementById("stop").classList.remove("hide");
-        document.getElementById("pause").classList.remove("hide");
         document.getElementById("play").classList.add("hide");
-        document.getElementById("back").classList.remove("hide");
-        document.getElementById("forward").classList.remove("hide");
+        // Reveal the other buttons
+        document.getElementById("pause").classList.remove("fade");
+        document.getElementById("back").classList.remove("fade");
+        document.getElementById("forward").classList.remove("fade");
         // Reveal the iFrame and hide the title
         document.getElementById("frame").classList.remove("hide");
         document.getElementById("title").classList.add("hide");
@@ -64,12 +65,13 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     });
 
     $scope.$on("stopCarousel", function() {
-        // Set the buttons to stop mode
+        // Set the main button to stop mode
         document.getElementById("stop").classList.add("hide");
-        document.getElementById("pause").classList.add("hide");
-        document.getElementById("back").classList.add("hide");
-        document.getElementById("forward").classList.add("hide");
         document.getElementById("play").classList.remove("hide");
+        // Fade out the other buttons
+        document.getElementById("pause").classList.add("fade");
+        document.getElementById("back").classList.add("fade");
+        document.getElementById("forward").classList.add("fade");
         if (angular.isDefined(timeout)) {
             // Cancel the timeout and clear the variable
             $interval.cancel(timeout);
@@ -85,10 +87,11 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     });
 
     $scope.$on("pauseCarousel", function() {
-        // Set the buttons to stop mode but don't hide the iframe
+        // Set the main button to stop mode
         document.getElementById("stop").classList.add("hide");
-        document.getElementById("pause").classList.add("hide");
         document.getElementById("play").classList.remove("hide");
+        // Fade the pause button but still show the iFrame and other options
+        document.getElementById("pause").classList.add("fade");
         if (angular.isDefined(timeout)) {
             // Cancel the timeout and clear the variable
             $interval.cancel(timeout);
