@@ -11,9 +11,13 @@ Displays a carousel of websites in a loop, great for viewing status boards, stat
 
 ![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-in-progress.png "Carousel in progress")
 
-You can edit the timer for the carousel and the frames that are shown.
+You can change the timer for the carousel and the frames that are shown in the edit menu.
 
 ![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-edit-menu.png "Edit menu open")
+
+Other functionality includes the pause button to halt the carousel at any time to take a longer look at a page and the forwards/backward buttons to move between pages.
+
+![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-paused.png "Carousel paused")
 
 ## Setup
 
