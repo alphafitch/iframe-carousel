@@ -40,7 +40,7 @@
                     <span><b>Frames in the carousel:</b></span>
                     <md-input-container id="frameInput" ng-repeat="frame in frames track by $index">
                         <label>Frame {{$index + 1}}</label>
-                        <input ng-model="frame">
+                        <input ng-model="frames[$index]">
                     </md-input-container>
                 </div>
             </div>
