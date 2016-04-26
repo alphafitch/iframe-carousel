@@ -8,7 +8,7 @@
     <section layout="row" flex>
         <md-sidenav class="md-sidenav-left md-whiteframe-z2 full-height" md-component-id="editMenu">
 
-            <md-toolbar id="editMenuToolbar" layout="row">
+            <md-toolbar id="edit-menu-toolbar" layout="row">
                 <div class="md-toolbar-tools black" flex="90">Edit</div>
                 <md-button flex="10" class="md-toolbar-tools flex-center black" ng-click="toggleEditMenu()" aria-label="Close edit section">
                     <i class="fa fa-times"></i>
@@ -38,7 +38,7 @@
                 </div>
                 <div layout="column" layout-padding>
                     <span><b>Frames in the carousel:</b></span>
-                    <md-input-container id="frameInput" ng-repeat="frame in frames track by $index">
+                    <md-input-container id="frame-input" ng-repeat="frame in frames track by $index">
                         <label>Frame {{$index + 1}}</label>
                         <input ng-model="frames[$index]">
                     </md-input-container>

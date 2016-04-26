@@ -1,5 +1,5 @@
 .text-center {
-  text-align: center;
+    text-align: center;
 }
 
 .black {
@@ -7,21 +7,21 @@
 }
 
 .flex-center {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .inline {
-  display: inline-flex;
+    display: inline-flex;
 }
 
 .lighter {
-  font-weight: lighter;
+    font-weight: lighter;
 }
 
 .normal {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 .left-padding {
@@ -29,5 +29,5 @@
 }
 
 .fade {
-    opacity: 0.2 !important;
+    opacity: .2 !important;
 }
