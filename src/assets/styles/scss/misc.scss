@@ -29,5 +29,7 @@
 }
 
 .fade {
+    // scss-lint:disable ImportantRule
+    // ImportantRule - !important is required here to override the material design framework
     opacity: .2 !important;
 }

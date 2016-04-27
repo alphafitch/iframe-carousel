@@ -1,3 +1,7 @@
+// scss-lint:disable IdSelector, ImportantRule
+// IdSelector -  IDs are required in this file to pick up the relevant elements
+// ImportantRule - !important is required here to override the material design framework
+
 body {
     display: flex;
     flex-direction: column;
