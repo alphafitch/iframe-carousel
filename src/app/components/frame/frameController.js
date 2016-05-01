@@ -33,6 +33,7 @@ carousel.controller("frameController", function($scope, $http) {
 
     // Changes the iFrame to the next URL in the list
     $scope.$on("nextFrame", function() {
+        document.getElementById("error-message").classList.add("hide");
         if ($scope.currentFrame != $scope.frames.length - 1) {
             $scope.currentFrame += 1;
         }
@@ -44,6 +45,7 @@ carousel.controller("frameController", function($scope, $http) {
 
     // Changes the iFrame to the previous URL in the list
     $scope.$on("previousFrame", function() {
+        document.getElementById("error-message").classList.add("hide");
         if ($scope.currentFrame !== 0) {
             $scope.currentFrame -= 1;
         }
@@ -57,6 +59,9 @@ carousel.controller("frameController", function($scope, $http) {
     $scope.$on("resetFrame", function() {
         $scope.currentFrame = 0;
         $scope.setFrame($scope.currentFrame);
+        // Hide the iframe and the error message
+        document.getElementById("frame").classList.add("hide");
+        document.getElementById("error-message").classList.add("hide");
     });
 
     // Set the first iframe on load
