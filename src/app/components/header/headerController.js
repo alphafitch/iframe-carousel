@@ -16,10 +16,12 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
     };
 
     $scope.stepBack = function() {
+        document.getElementById("error-message").classList.add("hide");
         $scope.$broadcast("previousFrame");
     };
 
     $scope.stepForward = function() {
+        document.getElementById("error-message").classList.add("hide");
         $scope.$broadcast("nextFrame");
     };
 
