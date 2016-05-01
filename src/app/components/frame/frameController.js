@@ -5,6 +5,7 @@ carousel.controller("frameController", function($scope, $http) {
 
     // Sets the iFrame to a given URL from the list
     $scope.setFrame = function(frameIndex) {
+        document.getElementById("error-message").classList.add("hide");
         var frameToDisplay = $scope.frames[frameIndex];
         $http({
             method: "POST",
@@ -17,7 +18,6 @@ carousel.controller("frameController", function($scope, $http) {
             if (data.allowsiframe) {
                 // iFrame allowed for destination URL
                 // Show iFrame and hide the error message
-                document.getElementById("error-message").classList.add("hide");
                 document.getElementById("frame").classList.remove("hide");
                 // Set iframe source to URL
                 document.getElementById("frame").src = frameToDisplay;
