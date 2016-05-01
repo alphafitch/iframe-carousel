@@ -1,10 +1,34 @@
-carousel.controller("frameController", function($scope) {
+carousel.controller("frameController", function($scope, $http) {
 
     $scope.currentFrame = 0;
 
     // Sets the iFrame to a given URL from the list
     $scope.setFrame = function(frameIndex) {
-        document.getElementById("frame").src = $scope.frames[frameIndex];
+        var frameToDisplay = $scope.frames[frameIndex];
+        $http({
+            method: "POST",
+            url: "src/app/components/frame/frameChecker.php",
+            data: "url="+frameToDisplay,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        }).success(function(data, status) {
+            if (data.allowsiframe) {
+                // iFrame allowed for destination URL
+                // Show iFrame and hide the error message
+                document.getElementById("error-message").classList.add("hide");
+                document.getElementById("frame").classList.remove("hide");
+                // Set iframe source to URL
+                document.getElementById("frame").src = frameToDisplay;
+            } else {
+                // iFrame not allowed for destination URL
+                // Hide iFrame and show the error message
+                document.getElementById("error-message").classList.remove("hide");
+                document.getElementById("frame").classList.add("hide");
+            }
+        }).error(function(data, status) {
+            // Checking the iFrame did not work for some reason
+        });
     };
 
     // Changes the iFrame to the next URL in the list
@@ -36,6 +60,6 @@ carousel.controller("frameController", function($scope) {
     });
 
     // Set the first iframe on load
-    $scope.setFrame($scope.currentFrame);
+    //$scope.setFrame($scope.currentFrame);
 
 });

@@ -1,6 +1,6 @@
 <div id="title" layout="column" class="flex-center">
     <h1>
-        <i class="fa fa-play-circle"></i>
+        <i class="fa fa-play-circle" aria-hidden="true"></i>
         <span> iFrame Carousel</span>
     </h1>
     <md-button ng-href="https://github.com/alphafitch/iframe-carousel" target="_blank" aria-label="A link to the GitHub page for iFrame Carousel">
@@ -10,3 +10,8 @@
     </md-button>
 </div>
 <iframe id="frame" class="hide"></iframe>
+<h3 id="error-message" layout="column" class="flex-center hide">
+    <i class="fa fa-2x fa-exclamation-triangle"></i>
+    <span>Refused to display "{{frames[currentFrame]}}" in a frame because of its "X-Frame-Options" settings.</span>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options">Find out more here.</a>
+</h3>
