@@ -58,11 +58,13 @@ carousel.controller("frameController", function($scope, $http) {
 
     // Resets the iFrame to the first URL in the list
     $scope.$on("resetFrame", function() {
-        $scope.currentFrame = 0;
-        $scope.setFrame($scope.currentFrame);
+        // Start the list before the first frame, so that next takes you to the first
+        $scope.currentFrame = -1;
         // Hide the iframe and the error message
         document.getElementById("frame").classList.add("hide");
         document.getElementById("error-message").classList.add("hide");
+        // Show the title page
+        document.getElementById("title").classList.remove("hide");
     });
 
 });

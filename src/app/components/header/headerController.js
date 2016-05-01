@@ -79,13 +79,9 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
             // Cancel the timeout and clear the variable
             $interval.cancel(timeout);
             timeout = undefined;
-            // Reset the progress bar
+            // Reset the progress bar and the iFrame
             $scope.progress = 0;
-            // Reset and hide the iFrame
             $scope.$broadcast("resetFrame");
-            document.getElementById("frame").classList.add("hide");
-            // Show the title
-            document.getElementById("title").classList.remove("hide");
         }
     });
 
