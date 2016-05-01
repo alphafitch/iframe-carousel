@@ -36,6 +36,9 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         // Set starting point for the progress bar
         $scope.progress = 0;
 
+        // Go to first frame
+        $scope.$broadcast("nextFrame");
+
         // Set main button to play mode
         document.getElementById("stop").classList.remove("hide");
         document.getElementById("play").classList.add("hide");
