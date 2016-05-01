@@ -56,8 +56,9 @@ carousel.controller("frameController", function($scope, $http) {
 
     // Resets the iFrame to the first URL in the list
     $scope.$on("resetFrame", function() {
-        // Start the list before the first frame, so that next takes you to the first
+        // Reset the frame counter and clear the iframe source
         $scope.currentFrame = -1;
+        document.getElementById("frame").src = "";
         // Hide the iframe and the error message
         document.getElementById("frame").classList.add("hide");
         document.getElementById("error-message").classList.add("hide");
