@@ -14,7 +14,7 @@ carousel.controller("frameController", function($scope, $http) {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
-        }).success(function(data, status) {
+        }).success(function(data) {
             if (data.allowsiframe) {
                 // iFrame allowed for destination URL
                 // Show iFrame and hide the error message
@@ -27,7 +27,7 @@ carousel.controller("frameController", function($scope, $http) {
                 document.getElementById("error-message").classList.remove("hide");
                 document.getElementById("frame").classList.add("hide");
             }
-        }).error(function(data, status) {
+        }).error(function() {
             // Checking the iFrame did not work for some reason
         });
     };
