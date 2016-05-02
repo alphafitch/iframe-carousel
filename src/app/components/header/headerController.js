@@ -7,7 +7,9 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
             // From complete stop to play
             $scope.$broadcast("setFrame", $rootScope.currentFrame);
             $scope.$broadcast("setPlayMode");
-            $scope.$broadcast("resetTimer");
+            // Reset the progress bar and start timer again
+            $rootScope.progress = 0;
+            $scope.$broadcast("restartTimer");
         }
         if ($rootScope.playing && !$rootScope.paused) {
             // From play to complete stop, clear timer and progress bar
@@ -17,9 +19,9 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
             $scope.$broadcast("resetFrame");
         }
         if (!$rootScope.playing && $rootScope.paused) {
-            // From paused to play, no need to set the frame again or clear the progress bar
+            // From paused to play, don't set the frame again or clear the progress bar
             $scope.$broadcast("setPlayMode");
-            $scope.$broadcast("resetTimer");
+            $scope.$broadcast("restartTimer");
             $rootScope.paused = false;
         }
         // Change the current mode of the carousel
@@ -35,14 +37,18 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
 
     $scope.stepBack = function() {
         if ($rootScope.playing) {
-            $scope.$broadcast("resetTimer");
+            // Reset the progress bar and start timer again
+            $rootScope.progress = 0;
+            $scope.$broadcast("restartTimer");
         }
         $scope.$broadcast("previousFrame");
     };
 
     $scope.stepForward = function() {
         if ($rootScope.playing) {
-            $scope.$broadcast("resetTimer");
+            // Reset the progress bar and start timer again
+            $rootScope.progress = 0;
+            $scope.$broadcast("restartTimer");
         }
         $scope.$broadcast("nextFrame");
     };
@@ -91,9 +97,7 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
         }
     });
 
-    $scope.$on("resetTimer", function() {
-        // Set starting point for the progress bar
-        $rootScope.progress = 0;
+    $scope.$on("restartTimer", function() {
         // Cancel the timeout and clear the variable
         if (angular.isDefined(timeout)) {
             $interval.cancel(timeout);
