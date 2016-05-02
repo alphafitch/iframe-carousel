@@ -11,6 +11,10 @@ Displays a carousel of websites in a loop, great for viewing status boards, stat
 
 ![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-in-progress.png "Carousel in progress")
 
+If a webpage cannot be shown in an iframe because of x-frame-options settings, a message will appear.
+
+![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-error-message.png "Carousel error message")
+
 You can change the timer for the carousel and the frames that are shown in the edit menu.
 
 ![alt text](https://github.com/alphafitch/iframe-carousel/blob/master/src/assets/images/examples/iframe-carousel-edit-menu.png "Edit menu open")
