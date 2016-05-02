@@ -14,10 +14,9 @@ carousel.controller("frameController", function($scope, $rootScope, $http) {
         }).success(function(data) {
             if (data.allowsiframe) {
                 // iFrame allowed for destination URL
-                // Show iFrame and hide the error message
-                document.getElementById("frame").classList.remove("hide");
-                // Set iframe source to URL
+                // Set iframe source then show it
                 document.getElementById("frame").src = frameToDisplay;
+                document.getElementById("frame").classList.remove("hide");
             } else {
                 // iFrame not allowed for destination URL
                 // Hide iFrame and show the error message

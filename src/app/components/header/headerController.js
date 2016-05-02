@@ -33,7 +33,6 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
     };
 
     $scope.stepBack = function() {
-        document.getElementById("error-message").classList.add("hide");
         if ($rootScope.playing) {
             $scope.$broadcast("resetTimer");
         }
@@ -41,7 +40,6 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
     };
 
     $scope.stepForward = function() {
-        document.getElementById("error-message").classList.add("hide");
         if ($rootScope.playing) {
             $scope.$broadcast("resetTimer");
         }
@@ -56,9 +54,10 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
         document.getElementById("pause").classList.remove("fade");
         document.getElementById("back").classList.remove("fade");
         document.getElementById("forward").classList.remove("fade");
-        // Reveal the iFrame and hide the title
+        // Reveal the iFrame and hide the title/error message
         document.getElementById("frame").classList.remove("hide");
         document.getElementById("title").classList.add("hide");
+        document.getElementById("error-message").classList.add("hide");
     });
 
     $scope.$on("setStopMode", function() {
