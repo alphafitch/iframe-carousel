@@ -1,4 +1,4 @@
-carousel.controller("headerController", ["$scope", "$interval", function($scope, $interval) {
+carousel.controller("headerController", function($scope, $interval) {
 
     var timeout;
 
@@ -105,4 +105,4 @@ carousel.controller("headerController", ["$scope", "$interval", function($scope,
         $scope.$broadcast("stopCarousel");
     });
 
-}]);
+});
