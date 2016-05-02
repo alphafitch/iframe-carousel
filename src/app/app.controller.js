@@ -1,4 +1,7 @@
-carousel.controller("appController", function($scope,  $http) {
+carousel.controller("appController", function($scope, $rootScope, $http) {
+
+    // Flag to show if the carousel is playing or not
+    $rootScope.playing = false;
 
     // Required for version info from the bower file
     $http.get("bower.json").then(function(response) {

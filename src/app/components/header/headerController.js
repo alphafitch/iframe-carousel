@@ -17,13 +17,17 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
 
     $scope.stepBack = function() {
         document.getElementById("error-message").classList.add("hide");
-        $scope.$broadcast("resetTimer");
+        if ($rootScope.playing) {
+            $scope.$broadcast("resetTimer");
+        }
         $scope.$broadcast("previousFrame");
     };
 
     $scope.stepForward = function() {
         document.getElementById("error-message").classList.add("hide");
-        $scope.$broadcast("resetTimer");
+        if ($rootScope.playing) {
+            $scope.$broadcast("resetTimer");
+        }
         $scope.$broadcast("nextFrame");
     };
 
