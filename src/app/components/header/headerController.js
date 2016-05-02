@@ -3,15 +3,23 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
     var timeout;
 
     $scope.toggleCarousel = function() {
-        if (!$rootScope.playing) {
+        if (!$rootScope.playing && !$rootScope.paused) {
+            // From complete stop to play
             $scope.$broadcast("setFrame", $rootScope.currentFrame);
             $scope.$broadcast("setPlayMode");
             $scope.$broadcast("resetTimer");
         }
-        else {
+        if ($rootScope.playing && !$rootScope.paused) {
+            // From play to complete stop
             $scope.$broadcast("setStopMode");
             $scope.$broadcast("stopTimer");
             $scope.$broadcast("resetFrame");
+        }
+        if (!$rootScope.playing && $rootScope.paused) {
+            // From paused to play, no need to set the frame again
+            $scope.$broadcast("setPlayMode");
+            $scope.$broadcast("resetTimer");
+            $rootScope.paused = false;
         }
         // Change the current mode of the carousel
         $rootScope.playing = !$rootScope.playing;
@@ -21,6 +29,7 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
         $scope.$broadcast("setPauseMode");
         $scope.$broadcast("pauseTimer");
         $rootScope.playing = false;
+        $rootScope.paused = true;
     };
 
     $scope.stepBack = function() {
