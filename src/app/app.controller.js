@@ -2,6 +2,8 @@ carousel.controller("appController", function($scope, $rootScope, $http) {
 
     // Flag to show if the carousel is playing or not
     $rootScope.playing = false;
+    // Start the list before the first frame, so that next takes you to the first
+    $rootScope.currentFrame = -1;
 
     // Required for version info from the bower file
     $http.get("bower.json").then(function(response) {

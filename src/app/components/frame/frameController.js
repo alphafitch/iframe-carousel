@@ -1,8 +1,5 @@
 carousel.controller("frameController", function($scope, $rootScope, $http) {
 
-    // Start the list before the first frame, so that next takes you to the first
-    $rootScope.currentFrame = -1;
-
     // Sets the iFrame to a given URL from the list
     $scope.setFrame = function(frameIndex) {
         document.getElementById("error-message").classList.add("hide");
