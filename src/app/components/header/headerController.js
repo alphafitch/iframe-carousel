@@ -10,13 +10,14 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
             $scope.$broadcast("resetTimer");
         }
         if ($rootScope.playing && !$rootScope.paused) {
-            // From play to complete stop
+            // From play to complete stop, clear timer and progress bar
             $scope.$broadcast("setStopMode");
+            $rootScope.progress = 0;
             $scope.$broadcast("stopTimer");
             $scope.$broadcast("resetFrame");
         }
         if (!$rootScope.playing && $rootScope.paused) {
-            // From paused to play, no need to set the frame again
+            // From paused to play, no need to set the frame again or clear the progress bar
             $scope.$broadcast("setPlayMode");
             $scope.$broadcast("resetTimer");
             $rootScope.paused = false;
@@ -27,7 +28,7 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
 
     $scope.pauseCarousel = function() {
         $scope.$broadcast("setPauseMode");
-        $scope.$broadcast("pauseTimer");
+        $scope.$broadcast("stopTimer");
         $rootScope.playing = false;
         $rootScope.paused = true;
     };
@@ -83,16 +84,6 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
     });
 
     $scope.$on("stopTimer", function() {
-        // Cancel the timeout and clear the variable
-        if (angular.isDefined(timeout)) {
-            $interval.cancel(timeout);
-            timeout = undefined;
-        }
-        // Clear the progress bar
-        $rootScope.progress = 0;
-    });
-
-    $scope.$on("pauseTimer", function() {
         // Cancel the timeout and clear the variable
         if (angular.isDefined(timeout)) {
             $interval.cancel(timeout);
