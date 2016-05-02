@@ -1,7 +1,7 @@
-carousel.controller("frameController", function($scope, $http) {
+carousel.controller("frameController", function($scope, $rootScope, $http) {
 
     // Start the list before the first frame, so that next takes you to the first
-    $scope.currentFrame = -1;
+    $rootScope.currentFrame = -1;
 
     // Sets the iFrame to a given URL from the list
     $scope.setFrame = function(frameIndex) {
@@ -34,30 +34,30 @@ carousel.controller("frameController", function($scope, $http) {
 
     // Changes the iFrame to the next URL in the list
     $scope.$on("nextFrame", function() {
-        if ($scope.currentFrame != $scope.frames.length - 1) {
-            $scope.currentFrame += 1;
+        if ($rootScope.currentFrame != $scope.frames.length - 1) {
+            $rootScope.currentFrame += 1;
         }
         else {
-            $scope.currentFrame = 0;
+            $rootScope.currentFrame = 0;
         }
-        $scope.setFrame($scope.currentFrame);
+        $scope.setFrame($rootScope.currentFrame);
     });
 
     // Changes the iFrame to the previous URL in the list
     $scope.$on("previousFrame", function() {
-        if ($scope.currentFrame !== 0) {
-            $scope.currentFrame -= 1;
+        if ($rootScope.currentFrame !== 0) {
+            $rootScope.currentFrame -= 1;
         }
         else {
-            $scope.currentFrame = $scope.frames.length - 1;
+            $rootScope.currentFrame = $scope.frames.length - 1;
         }
-        $scope.setFrame($scope.currentFrame);
+        $scope.setFrame($rootScope.currentFrame);
     });
 
     // Resets the iFrame to the first URL in the list
     $scope.$on("resetFrame", function() {
         // Reset the frame counter and clear the iframe source
-        $scope.currentFrame = -1;
+        $rootScope.currentFrame = -1;
         document.getElementById("frame").src = "";
         // Hide the iframe and the error message
         document.getElementById("frame").classList.add("hide");

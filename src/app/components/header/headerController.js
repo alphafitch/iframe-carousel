@@ -1,4 +1,4 @@
-carousel.controller("headerController", function($scope, $interval) {
+carousel.controller("headerController", function($scope, $rootScope, $interval) {
 
     var timeout;
 
@@ -88,6 +88,7 @@ carousel.controller("headerController", function($scope, $interval) {
     });
 
     $scope.$on("pauseCarousel", function() {
+        $rootScope.currentFrame = $rootScope.currentFrame - 1;
         // Set the main button to stop mode
         document.getElementById("stop").classList.add("hide");
         document.getElementById("play").classList.remove("hide");
