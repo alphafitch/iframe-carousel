@@ -89,7 +89,7 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
             timeout = undefined;
         }
         // Clear the progress bar
-        $scope.progress = 0;
+        $rootScope.progress = 0;
     });
 
     $scope.$on("pauseTimer", function() {
@@ -101,18 +101,8 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
     });
 
     $scope.$on("resetTimer", function() {
-        // Period of time to increment the progress bar, fixed to 100ms/1s for smooth progress bar
-        var intervalTime = 100,
-            // Max value of the progress bar
-            progressBarTotal = 100,
-            // Convert s into ms
-            userSetTime = $scope.timer * 1000,
-            // Value to increase progress bar per interval
-            progressBarIncrement = (intervalTime * progressBarTotal) / userSetTime;
-
         // Set starting point for the progress bar
-        $scope.progress = 0;
-
+        $rootScope.progress = 0;
         // Cancel the timeout and clear the variable
         if (angular.isDefined(timeout)) {
             $interval.cancel(timeout);
@@ -120,16 +110,16 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
         }
         // Start a new timeout and assign it to the variable
         timeout = $interval(function() {
-            if ($scope.progress >= progressBarTotal) {
+            if ($rootScope.progress >= $rootScope.progressBarTotal) {
                 // Move the iFrame to the next URL in the list
                 $scope.$broadcast("nextFrame");
                 // Reset the progress bar
-                $scope.progress = 0;
+                $rootScope.progress = 0;
             }
             else {
-                $scope.progress += progressBarIncrement;
+                $rootScope.progress += $rootScope.progressBarIncrement;
             }
-        }, intervalTime);
+        }, $rootScope.intervalTime);
     });
 
     $scope.$on("$destroy", function() {
