@@ -1,7 +1,7 @@
 carousel.controller("frameController", function($scope, $rootScope, $http) {
 
     // Sets the iFrame to a given URL from the list
-    $scope.setFrame = function(frameIndex) {
+    $scope.$on("setFrame", function(event, frameIndex) {
         document.getElementById("error-message").classList.add("hide");
         var frameToDisplay = $scope.frames[frameIndex];
         $http({
@@ -27,7 +27,7 @@ carousel.controller("frameController", function($scope, $rootScope, $http) {
         }).error(function() {
             // Checking the iFrame did not work for some reason
         });
-    };
+    });
 
     // Changes the iFrame to the next URL in the list
     $scope.$on("nextFrame", function() {
@@ -37,7 +37,7 @@ carousel.controller("frameController", function($scope, $rootScope, $http) {
         else {
             $rootScope.currentFrame = 0;
         }
-        $scope.setFrame($rootScope.currentFrame);
+        $scope.$broadcast("setFrame", $rootScope.currentFrame);
     });
 
     // Changes the iFrame to the previous URL in the list
@@ -48,7 +48,7 @@ carousel.controller("frameController", function($scope, $rootScope, $http) {
         else {
             $rootScope.currentFrame = $scope.frames.length - 1;
         }
-        $scope.setFrame($rootScope.currentFrame);
+        $scope.$broadcast("setFrame", $rootScope.currentFrame);
     });
 
     // Resets the iFrame to the first URL in the list

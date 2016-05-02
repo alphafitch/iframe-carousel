@@ -4,6 +4,7 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
 
     $scope.toggleCarousel = function() {
         if (!$rootScope.playing) {
+            $scope.$broadcast("setFrame", $rootScope.currentFrame);
             $scope.$broadcast("setPlayMode");
             $scope.$broadcast("resetTimer");
         }
