@@ -23,8 +23,6 @@ carousel.controller("appController", function($scope, $rootScope, $http) {
         $scope.frames = response.data.list;
         $scope.timer = response.data.timer;
         $scope.totalFrames = $scope.frames.length;
-        // Set the value to increase progress bar per interval
-        $rootScope.progressBarIncrement = ($rootScope.intervalTime * $rootScope.progressBarTotal) / ($scope.timer * 1000);
     });
 
 });

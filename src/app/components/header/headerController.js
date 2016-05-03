@@ -98,6 +98,8 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
     });
 
     $scope.$on("restartTimer", function() {
+        // The value to increase progress bar by every interval
+        var progressBarIncrement = ($rootScope.intervalTime * $rootScope.progressBarTotal) / ($scope.timer * 1000);
         // Cancel the timeout and clear the variable
         if (angular.isDefined(timeout)) {
             $interval.cancel(timeout);
@@ -112,7 +114,7 @@ carousel.controller("headerController", function($scope, $rootScope, $interval) 
                 $rootScope.progress = 0;
             }
             else {
-                $rootScope.progress += $rootScope.progressBarIncrement;
+                $rootScope.progress += progressBarIncrement;
             }
         }, $rootScope.intervalTime);
     });
