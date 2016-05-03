@@ -72,7 +72,7 @@ gulp.task("code-check", ["eslint", "scsslint"]);
 // ---------- Production build tasks ----------
 
 // Build an artefact and zip everything up
-gulp.task("build", ["scripts", "bower_components", "styles", "html", "images", "index", "config", "misc"], function() {
+gulp.task("build", ["scripts", "bower_components", "styles", "html", "images", "index", "config", "php", "misc"], function() {
   return gulp.src("dist/**/**")
     .pipe(zip("iframe-carousel.zip"))
     .pipe(gulp.dest("dist"));
@@ -101,6 +101,12 @@ gulp.task("styles", function() {
 // Move all the html into /dist
 gulp.task("html", function() {
   return gulp.src("src/app/**/*.html")
+    .pipe(gulp.dest("dist/src/app"));
+});
+
+// Move all the php into /dist
+gulp.task("php", function() {
+  return gulp.src("src/app/**/*.php")
     .pipe(gulp.dest("dist/src/app"));
 });
 
