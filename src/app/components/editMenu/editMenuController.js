@@ -1,9 +1,13 @@
-carousel.controller("editMenuController", function($scope, $mdSidenav) {
+carousel.controller("editMenuController", function($scope, $rootScope, $mdSidenav) {
 
     $scope.toggleEditMenu = function() {
         $mdSidenav("editMenu").toggle();
-        // Reset the frame and the timer when the edit menu is opened
-        $scope.$broadcast("stopCarousel");
+        // This behaves the same as hitting the stop button
+        $scope.$broadcast("setStopMode");
+        $rootScope.progress = 0;
+        $scope.$broadcast("stopTimer");
+        $scope.$broadcast("resetFrame");
+        $rootScope.playing = false;
     };
 
     $scope.addFrame = function() {
