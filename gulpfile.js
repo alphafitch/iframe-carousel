@@ -16,17 +16,19 @@ var gulp = require("gulp"),
     tag_version = require("gulp-tag-version"),
     paths = {
         // All JS files - for linting
-        allscripts : ["src/app/**/*.js", "gulpfile.js"],
+        allscripts     : ["src/app/**/*.js", "gulpfile.js"],
         // Only source JS files - for building the artefact
-        appscripts : ["src/app/app.module.js", "src/app/**/*.js"],
+        appscripts     : ["src/app/app.module.js", "src/app/**/*.js"],
         // All scss files - for linting
-        allstyles  : "src/assets/styles/**/*.scss",
+        allstyles      : "src/assets/styles/**/*.scss",
         // Only the main scss file - for building the artefact
-        appstyles  : "src/assets/styles/app.styles.scss",
+        appstyles      : "src/assets/styles/app.styles.scss",
         // All image files
-        images     : "src/assets/images/**/*.*",
+        images         : "src/assets/images/**/*.*",
+        // Images that should be excluded from the final build artefact
+        excludedimages : "!src/assets/images/examples/*.*",
         // The config settings for the app
-        config     : "src/app/app.config.json"
+        config         : "src/app/app.config.json"
     };
 
 // ---------- Code lint and tidy up tasks ----------
@@ -112,7 +114,7 @@ gulp.task("php", function() {
 
 // Move the images into /dist
 gulp.task("images", function() {
-  return gulp.src(paths.images)
+  return gulp.src([paths.images, paths.excludedimages])
     .pipe(gulp.dest("dist/src/assets/images/"));
 });
 
